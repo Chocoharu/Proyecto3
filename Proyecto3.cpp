@@ -8,7 +8,12 @@
 #include <vector>
 #include <bits/stdc++.h>
 #include <random>
+#include <chrono>
 using namespace std;
+using std::chrono::high_resolution_clock;
+using std::chrono::duration;
+using std::chrono::duration_cast;
+
 //https://www.geeksforgeeks.org/measure-execution-time-with-high-precision-in-c-c/
 void Swap(vector<int>& arr, int i, int j) {
     int temp = arr[i];
@@ -194,10 +199,12 @@ void HeapSort(vector<int>& arr)
     }
 }
 double getResultFromAlg(vector<int>& arr,int option) {
-	time_t start, end;
+	/*time_t start, end;
 	double time_taken;
-	time(&start);
-	ios_base::sync_with_stdio(false);
+	time(&start);*/
+	high_resolution_clock::time_point start =  high_resolution_clock::now();
+	//cout<<endl<<start<<endl;
+	//ios_base::sync_with_stdio(false);
 	switch(option)
 	{
 		case 0: SelectionSort(arr);
@@ -210,20 +217,23 @@ double getResultFromAlg(vector<int>& arr,int option) {
 				break;
 		case 4: MergeSort(arr, 0, arr.size()-1);
 				break;
-		case 5:	QuickSort(arr, 0, arr.size()-1);
+		case 5: QuickSort(arr, 0, arr.size()-1);
 				break;
 		case 6: HeapSort(arr);
 				break;
 	}
-	time(&end);
-	time_taken = double(end - start);
-	return time_taken;
+	//time(&end);
+	//cout<< "Valor:" << end<<endl;
+	//time_taken = double(end - start);
+	//return time_taken;
+	high_resolution_clock::time_point end =  high_resolution_clock::now();
+	return duration_cast<duration<double>>(end - start).count();
 }
 int main(int argc, char* argv[]) {
 	
 	vector<int> arr, arrSorted, arrReverse;
 	int random_value;
-	int amount = 100000;
+	int amount = 70000;
 	cout << "Generando set de datos: " << endl;
 	for (int i = 0; i < amount ; ++i)
 	{
@@ -249,23 +259,32 @@ int main(int argc, char* argv[]) {
 	arr6.assign(arr.begin(), arr.end());
 	
 	unordered_map<string, double> results;
-	//results["HeapSort"] = getResultFromAlg(arrReverse,6);
-	results["QuickSort"] = getResultFromAlg(arrReverse,5);
-	//results["MergeSort"] = getResultFromAlg(arr4,4);
-	//results["ShellSort"] = getResultFromAlg(arr3,3);
-	//results["InsertionSort"] = getResultFromAlg(arr2,2);
-	//results["BubbleSort"] = getResultFromAlg(arr1,1);
-	//results["SeleciontSort"] = getResultFromAlg(arr,0);
 	
+	results["HeapSort"] = getResultFromAlg(arr6,6);
+	results["QuickSort"] = getResultFromAlg(arr5,5);
+	results["MergeSort"] = getResultFromAlg(arr4,4);
+	results["ShellSort"] = getResultFromAlg(arr3,3);
+	results["InsertionSort"] = getResultFromAlg(arr2,2);
+	results["BubbleSort"] = getResultFromAlg(arr1,1);
+	results["SeleciontSort"] = getResultFromAlg(arr,0);
 	
 	int id = 1;
+	double min = 0;
+	string ganador;
 	for (const auto& pair : results)
 	{
+		if(min>pair.second||min==0)
+		{
+			min = pair.second;
+			ganador = pair.first;
+		}
 		const string& key = pair.first;
 		double value = pair.second;
 		cout << id << ". " << key << ", " << fixed << value << setprecision(5)
 		<< endl;
 		id++;
 	}
-return 0;
+	cout<<ganador<<" es el ganador con "<<min<< " segundos"<<endl;
+	
+	return 0;
 }
