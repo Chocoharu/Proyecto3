@@ -519,7 +519,7 @@ int main(int argc, char* argv[]) {
 	vector<int> arrRandom, arrSorted, arrReverse, arrOrdenR; //Tablero
 	vector<int> arrRandom1, arrSorted1, arrReverse1, arrOrdenR1; //Camino
 	vector<int> arrRandom2, arrSorted2, arrReverse2, arrOrdenR2; //Objeto
-	int menu;
+	int menu, aux = 0;
 	
 	int Tablero = 30000;//90000 + rand() % 10001;
 	int Camino = 20000;//50000 + rand() % 20001;
@@ -529,11 +529,20 @@ int main(int argc, char* argv[]) {
 	SortGeneration(arrSorted, arrReverse, arrRandom, arrOrdenR, Tablero);
 	SortGeneration(arrSorted1, arrReverse1, arrRandom1, arrOrdenR1, Camino);
 	SortGeneration(arrSorted2, arrReverse2, arrRandom2, arrOrdenR2, Objeto);
+	
+	cout << "Set de datos generados" << endl;
     
-    cout << "Carreras de algoritmos" << endl;
-    cout << "1. Ascendente." << endl << "2. Descendente." << endl;
-    cin >> menu;
-    cout << "Opcion elgida: " << menu << endl;
+    cout << "\nCarreras de algoritmos" << endl;
+    do
+    {
+    	cout << "1. Ascendente." << endl << "2. Descendente." << endl;
+    	cin >> menu;
+    	cout << "Opcion elgida: " << menu << endl;
+    	if(menu == 1 || menu == 2)
+    	{
+    		aux=1;
+		}
+	} while(aux!=1);
     
     switch(menu)
     {
@@ -592,6 +601,5 @@ int main(int argc, char* argv[]) {
 				SortExecutionR(arrOrdenR2);
     			break;
 	}
-	
 	return 0;
 }
