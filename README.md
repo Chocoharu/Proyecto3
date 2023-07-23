@@ -69,4 +69,4 @@ Para ejecutar el programa, selecciona el tipo de orden (ascendente o descendente
 Por fines prácticos de la ejecución y presentación de video, se redujo la cantidad de datos a 30.000 para Tablero y 20.000 para Caminos.
 
 ## Video explicativo
-A continuación, puedes encontrar un [video explicativo]() que muestra la ejecución y los resultados de la carrera de algoritmos de ordenamiento y búsqueda desarrollada en este proyecto.
+[video explicativo](https://youtu.be/uESXee1ZlvA)

@@ -14,12 +14,12 @@ using std::chrono::high_resolution_clock;
 using std::chrono::duration;
 using std::chrono::duration_cast;
 
-void Swap(vector<int>& arr, int i, int j) {
+void Swap(vector<int>& arr, int i, int j) {			//Funcion de intercambio de posiciones
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
 }
-void SelectionSort(vector<int>& arr)
+void SelectionSort(vector<int>& arr)				//Ascendete
 {
 	int n = arr.size();
 	for (int i = 0; i < n ; ++i)
@@ -33,7 +33,7 @@ void SelectionSort(vector<int>& arr)
 		}
 	}
 }
-void SelectionSortR(vector<int>& arr)
+void SelectionSortR(vector<int>& arr)				//Descendente
 {
 	int n = arr.size();
 	for (int i = 0; i < n ; ++i)
@@ -47,7 +47,7 @@ void SelectionSortR(vector<int>& arr)
 		}
 	}
 }
-void BubbleSort(vector<int>& arr)
+void BubbleSort(vector<int>& arr)					//Ascendete
 {
 	int n = arr.size();
 	for(int i = 0; i < n -1 ; ++i)
@@ -67,7 +67,7 @@ void BubbleSort(vector<int>& arr)
             break;
 	}
 }
-void BubbleSortR(vector<int>& arr)
+void BubbleSortR(vector<int>& arr)					//Descendente
 {
 	int n = arr.size();
 	for(int i = 0; i < n -1 ; ++i)
@@ -87,7 +87,7 @@ void BubbleSortR(vector<int>& arr)
             break;
 	}
 }
-void InsertionSort(vector<int>& arr)
+void InsertionSort(vector<int>& arr)					//Ascendete
 {
 	int n = arr.size();
 	for (int i = 1; i < n; ++i)
@@ -101,7 +101,7 @@ void InsertionSort(vector<int>& arr)
         arr[j + 1] = key;
     }
 }
-void InsertionSortR(vector<int>& arr)
+void InsertionSortR(vector<int>& arr)					//Descendente
 {
 	int n = arr.size();
 	for (int i = 1; i < n; ++i)
@@ -115,7 +115,7 @@ void InsertionSortR(vector<int>& arr)
         arr[j + 1] = key;
     }
 }
-void ShellSort(vector<int>& arr)
+void ShellSort(vector<int>& arr)					//Ascendete
 {
 	int n = arr.size();
 	int intervalo = 1;
@@ -140,7 +140,7 @@ void ShellSort(vector<int>& arr)
         intervalo /= 3;
     }
 }
-void ShellSortR(vector<int>& arr)
+void ShellSortR(vector<int>& arr)									//Descendente
 {
 	int n = arr.size();
 	int intervalo = 1;
@@ -165,7 +165,7 @@ void ShellSortR(vector<int>& arr)
         intervalo /= 3;
     }
 }
-void Merge(vector<int>& arr, int left, int middle, int right)
+void Merge(vector<int>& arr, int left, int middle, int right)					//Funcion de MergeSort
 {
 	int n1 = middle - left + 1;
     int n2 = right - middle;
@@ -206,7 +206,7 @@ void Merge(vector<int>& arr, int left, int middle, int right)
         ++k;
     }
 }
-void MergeSort(vector<int>& arr, int left, int right)
+void MergeSort(vector<int>& arr, int left, int right)					//Ascendete
 {
 	if (left < right) {
         int middle = left + (right - left) / 2;
@@ -218,7 +218,7 @@ void MergeSort(vector<int>& arr, int left, int right)
         Merge(arr, left, middle, right);
     }
 }
-void MergeR(vector<int>& arr, int left, int middle, int right)
+void MergeR(vector<int>& arr, int left, int middle, int right)			//Funcion de Merge Sort descendente
 {
 	int n1 = middle - left + 1;
     int n2 = right - middle;
@@ -259,7 +259,7 @@ void MergeR(vector<int>& arr, int left, int middle, int right)
         ++k;
     }
 }
-void MergeSortR(vector<int>& arr, int left, int right)
+void MergeSortR(vector<int>& arr, int left, int right)							//Descendente
 {
 	if (left < right) {
         int middle = left + (right - left) / 2;
@@ -271,7 +271,7 @@ void MergeSortR(vector<int>& arr, int left, int right)
         MergeR(arr, left, middle, right);
     }
 }
-int Partition(vector<int>& arr, int low, int high)
+int Partition(vector<int>& arr, int low, int high)							//Pivote y divison de Quick Sort
 {
 	int pivot = arr[high];
 	int i = low - 1;
@@ -285,7 +285,7 @@ int Partition(vector<int>& arr, int low, int high)
     Swap(arr, i + 1, high);
     return i + 1;
 }
-void QuickSort(vector<int>& arr, int low, int high)
+void QuickSort(vector<int>& arr, int low, int high)						//Ascendete
 {
 	if (low < high) {
         int partitionIndex = Partition(arr, low, high);
@@ -293,7 +293,7 @@ void QuickSort(vector<int>& arr, int low, int high)
         QuickSort(arr, partitionIndex + 1, high);
     }
 }
-int PartitionR(vector<int>& arr, int low, int high)
+int PartitionR(vector<int>& arr, int low, int high)						//Pivote y divison de Quick Sort descendente
 {
 	int pivot = arr[high];
 	int i = low - 1;
@@ -307,7 +307,7 @@ int PartitionR(vector<int>& arr, int low, int high)
     Swap(arr, i + 1, high);
     return i + 1;
 }
-void QuickSortR(vector<int>& arr, int low, int high)
+void QuickSortR(vector<int>& arr, int low, int high)					//Descendente
 {
 	if (low < high) {
         int partitionIndex = PartitionR(arr, low, high);
@@ -315,7 +315,7 @@ void QuickSortR(vector<int>& arr, int low, int high)
         QuickSortR(arr, partitionIndex + 1, high);
     }
 }
-void heapify(vector<int>& arr, int n, int i)
+void heapify(vector<int>& arr, int n, int i)							//Orden arbol
 {
 	int largest = i;
 	int left = 2 * i + 1;
@@ -332,7 +332,7 @@ void heapify(vector<int>& arr, int n, int i)
         heapify(arr, n, largest);
     }
 }
-void HeapSort(vector<int>& arr)
+void HeapSort(vector<int>& arr)											//Ascendete
 {
 	int n = arr.size();
 	for (int i = n / 2 - 1; i >= 0; --i)
@@ -345,7 +345,7 @@ void HeapSort(vector<int>& arr)
         heapify(arr, i, 0);
     }
 }
-void heapifyR(vector<int>& arr, int n, int i)
+void heapifyR(vector<int>& arr, int n, int i)							//Orden arbol descendente
 {
 	int largest = i;
 	int left = 2 * i + 1;
@@ -362,7 +362,7 @@ void heapifyR(vector<int>& arr, int n, int i)
         heapify(arr, n, largest);
     }
 }
-void HeapSortR(vector<int>& arr)
+void HeapSortR(vector<int>& arr)									//Descendente
 {
 	int n = arr.size();
 	for (int i = n / 2 - 1; i >= 0; --i)
@@ -375,9 +375,11 @@ void HeapSortR(vector<int>& arr)
         heapifyR(arr, i, 0);
     }
 }
-double getResultFromAlg(vector<int>& arr,int option) {
-	high_resolution_clock::time_point start =  high_resolution_clock::now();
-	switch(option)
+double getResultFromAlg(vector<int>& arr,int option) {									//Tiempo inicio de ejecucion.
+	
+	high_resolution_clock::time_point start =  high_resolution_clock::now();			//Incio cronometro
+	
+	switch(option)																		//Algoritmo a ejecutar
 	{
 		case 0: SelectionSort(arr);
 				break;
@@ -408,13 +410,14 @@ double getResultFromAlg(vector<int>& arr,int option) {
 		case 13: HeapSortR(arr);
 				break;		
 	}
-	high_resolution_clock::time_point end =  high_resolution_clock::now();
-	return duration_cast<duration<double>>(end - start).count();
+	high_resolution_clock::time_point end =  high_resolution_clock::now();			//Tiempo fin de ejecucion
+	
+	return duration_cast<duration<double>>(end - start).count();					//Resta y retorne de tiempo de ejecucion
 }
 
-void SortExecution(vector<int>& arr)
+void SortExecution(vector<int>& arr)												//Comparacion de algoritmos
 {
-	vector<int> arr1,arr2,arr3,arr4,arr5,arr6;
+	vector<int> arr1,arr2,arr3,arr4,arr5,arr6;										//Clonacion de arreglos
 	arr1.assign(arr.begin(), arr.end());
 	arr2.assign(arr.begin(), arr.end());
 	arr3.assign(arr.begin(), arr.end());
@@ -422,7 +425,7 @@ void SortExecution(vector<int>& arr)
 	arr5.assign(arr.begin(), arr.end());
 	arr6.assign(arr.begin(), arr.end());
 	
-	unordered_map<string, double> results;
+	unordered_map<string, double> results;											//Mapa de guardado de lgoritmos y tiempo de ejecucion
 	
 	results["HeapSort"] = getResultFromAlg(arr6,6);
 	results["QuickSort"] = getResultFromAlg(arr5,5);
@@ -435,7 +438,7 @@ void SortExecution(vector<int>& arr)
 	int id = 1;
 	double min = 0;
 	string ganador;
-	for (const auto& pair : results)
+	for (const auto& pair : results)													//Impresion de algoritmo y tiempo de ejecucion y comparacion de tiempo
 	{
 		if(min>pair.second||min==0)
 		{
@@ -448,9 +451,9 @@ void SortExecution(vector<int>& arr)
 		<< endl;
 		id++;
 	}
-	cout<<ganador<<" es el ganador con "<<min<< " segundos"<<endl;
+	cout<<ganador<<" es el ganador con "<<min<< " segundos"<<endl;						//Impresion de algoritmo ganador
 }
-void SortExecutionR(vector<int>& arr)
+void SortExecutionR(vector<int>& arr)													//Misma funcion que la anterior, pero version de algortimos descendente
 {
 	vector<int> arr1,arr2,arr3,arr4,arr5,arr6;
 	arr1.assign(arr.begin(), arr.end());
@@ -488,18 +491,18 @@ void SortExecutionR(vector<int>& arr)
 	}
 	cout<<ganador<<" es el ganador con "<<min<< " segundos"<<endl;
 }
-void SortGeneration(vector<int>& arrA, vector<int>& arrD, vector<int>& arrR, vector<int>& arrSinDuplicado, int amount)
+void SortGeneration(vector<int>& arrA, vector<int>& arrD, vector<int>& arrR, vector<int>& arrSinDuplicado, int amount) //Generacion y alacenamiento de arreglos
 {
 	int random_value;
 	for (int i = 0; i < amount ; ++i)
 	{
-		arrA.push_back(i+1);
-		arrD.push_back(amount-i);
-		arrSinDuplicado.push_back(i+1);
+		arrA.push_back(i+1);																	//Arreglo ascendente
+		arrD.push_back(amount-i);																//Arreglo descendente
+		arrSinDuplicado.push_back(i+1);															//Arreglo ascendente para desordenar
 		if ( i == 0 )
 		{
 			random_value = 1 + rand() % (amount);
-			arrR.push_back(random_value);
+			arrR.push_back(random_value);														//Arreglo aleatorio
 		}
 		else
 		{
@@ -507,7 +510,7 @@ void SortGeneration(vector<int>& arrA, vector<int>& arrD, vector<int>& arrR, vec
 			arrR.push_back(random_value);
 		}
 	}
-	for (int i = amount - 1; i > 0; --i)
+	for (int i = amount - 1; i > 0; --i)														//Arreglo ascendente desorndeado
 	{
         int j = rand() % (i + 1);
         swap(arrSinDuplicado[i], arrSinDuplicado[j]);
@@ -526,8 +529,8 @@ int main(int argc, char* argv[]) {
 	int Objeto = 7500 + rand() % 7501;
 	cout << "Generando set de datos: " << endl;
 	
-	SortGeneration(arrSorted, arrReverse, arrRandom, arrOrdenR, Tablero);
-	SortGeneration(arrSorted1, arrReverse1, arrRandom1, arrOrdenR1, Camino);
+	SortGeneration(arrSorted, arrReverse, arrRandom, arrOrdenR, Tablero);								//Generacion de arreglos
+	SortGeneration(arrSorted1, arrReverse1, arrRandom1, arrOrdenR1, Camino);		
 	SortGeneration(arrSorted2, arrReverse2, arrRandom2, arrOrdenR2, Objeto);
 	
 	cout << "Set de datos generados" << endl;
@@ -535,7 +538,7 @@ int main(int argc, char* argv[]) {
     cout << "\nCarreras de algoritmos" << endl;
     do
     {
-    	cout << "1. Ascendente." << endl << "2. Descendente." << endl;
+    	cout << "1. Ascendente." << endl << "2. Descendente." << endl;									//Menu de ejecucion
     	cin >> menu;
     	cout << "Opcion elgida: " << menu << endl;
     	if(menu == 1 || menu == 2)
@@ -544,7 +547,7 @@ int main(int argc, char* argv[]) {
 		}
 	} while(aux!=1);
     
-    switch(menu)
+    switch(menu)	
     {
     	case 1: cout << "\nCarrera por el Tablero: Modo Ordenado" << endl;
 				SortExecution(arrSorted);

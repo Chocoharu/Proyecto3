@@ -1,0 +1,1 @@
+Para compilar el codigo, simplemente es necesario tener Dev-C++ y compilar en su programa, tambien es posible ejecutarlo desde el mismo programa.
